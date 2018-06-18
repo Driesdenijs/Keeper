@@ -1,1 +1,1 @@
-/usr/bin/cc  -O0 -g3 -pthread   CMakeFiles/keeper.dir/src/door.c.o CMakeFiles/keeper.dir/src/keyfile.c.o CMakeFiles/keeper.dir/src/main.c.o CMakeFiles/keeper.dir/src/reader.c.o  -o keeper -rdynamic -lfreefare -lnfc -lwiringPi -lwiringPiDev 
+/usr/bin/cc  -O0 -g3 -pthread -lpaho-mqtt3c   CMakeFiles/keeper.dir/src/door.c.o CMakeFiles/keeper.dir/src/keyfile.c.o CMakeFiles/keeper.dir/src/main.c.o CMakeFiles/keeper.dir/src/mqtt.c.o CMakeFiles/keeper.dir/src/reader.c.o  -o keeper -rdynamic -lfreefare -lnfc -lwiringPi -lwiringPiDev 

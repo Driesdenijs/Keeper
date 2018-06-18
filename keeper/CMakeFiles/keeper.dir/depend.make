@@ -10,8 +10,15 @@ CMakeFiles/keeper.dir/src/keyfile.c.o: src/keyfile.c
 CMakeFiles/keeper.dir/src/keyfile.c.o: include/keyfile.h
 
 CMakeFiles/keeper.dir/src/main.c.o: src/main.c
+CMakeFiles/keeper.dir/src/main.c.o: /usr/local/include/MQTTClient.h
+CMakeFiles/keeper.dir/src/main.c.o: /usr/local/include/MQTTClientPersistence.h
 CMakeFiles/keeper.dir/src/main.c.o: include/door.h
+CMakeFiles/keeper.dir/src/main.c.o: include/mqtt.h
 CMakeFiles/keeper.dir/src/main.c.o: include/reader.h
+
+CMakeFiles/keeper.dir/src/mqtt.c.o: src/mqtt.c
+CMakeFiles/keeper.dir/src/mqtt.c.o: /usr/local/include/MQTTClient.h
+CMakeFiles/keeper.dir/src/mqtt.c.o: /usr/local/include/MQTTClientPersistence.h
 
 CMakeFiles/keeper.dir/src/reader.c.o: src/reader.c
 CMakeFiles/keeper.dir/src/reader.c.o: include/config.h

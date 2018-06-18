@@ -25,9 +25,9 @@ message(STATUS "${ALL_SRC}")
  
 # example how to set c++ compiler flags for GNU
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
-    set(CMAKE_C_FLAGS__         "-O3 -Wall -Og -pthread")
-    set(CMAKE_C_FLAGS           "-O0 -g3 -pthread")
-    set(CMAKE_C_FLAGS_RELEASE   "-O3 -pthread")
+    set(CMAKE_C_FLAGS__         "-O3 -Wall -Og -pthread -lpaho-mqtt3c")
+    set(CMAKE_C_FLAGS           "-O0 -g3 -pthread -lpaho-mqtt3c")
+    set(CMAKE_C_FLAGS_RELEASE   "-O3 -pthread -lpaho-mqtt3c")
 endif()
 
 include_directories("/usr/local/include") 

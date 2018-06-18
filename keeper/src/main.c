@@ -30,14 +30,16 @@
 #include <pthread.h>
 #include "door.h"
 #include "reader.h"
+#include "MQTTClient.h"
+#include "mqtt.h"
 
 //Sockets
 int listenfd = 0, connfd = 0;
 struct sockaddr_in serv_addr; 
-char sendBuff[1025];
+char sendBuff[1024];
 time_t ticks;
-pthread_t t_socket;;
-
+pthread_t t_socket;
+MQTTClient client;
 
 #define NELT(a) (sizeof(a)/sizeof(a[0]))
 const char * const validCards[] =  {
@@ -107,12 +109,46 @@ void* socketListener(void *arg){
    }
 }
 
+void onDoorStateChange(int state){
+      char buffer[10];
+
+      sprintf(buffer,"%s",doorStates[state]);	
+
+      publish(client, "state", buffer);
+
+}
+
+int onMessage(void *context, char *topicName, int topicLen, MQTTClient_message *message){
+    char* payload = message->payload;
+    printf("Received operation %s\n", payload);
+
+	 if(!strncmp(payload,"close",5) ){
+            doorSetState(CLOSING);
+            printf("closed by socket\n");
+        }else if(!strncmp(sendBuff,"open",4)){
+            doorSetState(OPENING);
+            snprintf(sendBuff, sizeof(sendBuff), "Open @ %.24s\r\n", ctime(&ticks));
+            printf("Opened by socket\n");
+        }else{
+            snprintf(sendBuff, sizeof(sendBuff), "Failed @ %.24s\r\n", ctime(&ticks));
+            printf("no match\n");
+        } 
+
+
+    MQTTClient_freeMessage(&message);
+    MQTTClient_free(topicName);
+    return 1;
+}
+
+
 int main(int argc, char *argv[]){
 
 	int i,err;
 
 	doorInit();
+	setOnStateChange_callback(&onDoorStateChange);
 	initSockets(5000);
+	initMqtt(client, &onMessage);
 
         printf("start closing...\n");
 	//doorSetState(CLOSING);
@@ -143,4 +179,3 @@ int main(int argc, char *argv[]){
 
 	}
 }
-

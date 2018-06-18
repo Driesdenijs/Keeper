@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/keeper/keeper/src/door.c
+/home/pi/Keeper/keeper/src/door.c
 door.h
-/home/pi/keeper/keeper/src/door.h
+/home/pi/Keeper/keeper/src/door.h
 stdio.h
 -
 unistd.h
@@ -26,11 +26,11 @@ time.h
 pthread.h
 -
 wiringPi.h
-/home/pi/keeper/keeper/src/wiringPi.h
+/home/pi/Keeper/keeper/src/wiringPi.h
 piFace.h
-/home/pi/keeper/keeper/src/piFace.h
+/home/pi/Keeper/keeper/src/piFace.h
 
-/home/pi/keeper/keeper/src/keyfile.c
+/home/pi/Keeper/keeper/src/keyfile.c
 err.h
 -
 stdio.h
@@ -46,9 +46,9 @@ unistd.h
 time.h
 -
 keyfile.h
-/home/pi/keeper/keeper/src/keyfile.h
+/home/pi/Keeper/keeper/src/keyfile.h
 
-/home/pi/keeper/keeper/src/main.c
+/home/pi/Keeper/keeper/src/main.c
 sys/socket.h
 -
 netinet/in.h
@@ -78,11 +78,25 @@ string.h
 pthread.h
 -
 door.h
-/home/pi/keeper/keeper/src/door.h
+/home/pi/Keeper/keeper/src/door.h
 reader.h
-/home/pi/keeper/keeper/src/reader.h
+/home/pi/Keeper/keeper/src/reader.h
+MQTTClient.h
+/home/pi/Keeper/keeper/src/MQTTClient.h
+mqtt.h
+/home/pi/Keeper/keeper/src/mqtt.h
 
-/home/pi/keeper/keeper/src/reader.c
+/home/pi/Keeper/keeper/src/mqtt.c
+stdlib.h
+/home/pi/Keeper/keeper/src/stdlib.h
+string.h
+/home/pi/Keeper/keeper/src/string.h
+unistd.h
+/home/pi/Keeper/keeper/src/unistd.h
+MQTTClient.h
+/home/pi/Keeper/keeper/src/MQTTClient.h
+
+/home/pi/Keeper/keeper/src/reader.c
 ctype.h
 -
 stdio.h
@@ -104,13 +118,45 @@ nfc.h
 freefare.h
 -
 config.h
-/home/pi/keeper/keeper/src/config.h
+/home/pi/Keeper/keeper/src/config.h
 keyfile.h
-/home/pi/keeper/keeper/src/keyfile.h
+/home/pi/Keeper/keeper/src/keyfile.h
 offlineformat.h
-/home/pi/keeper/keeper/src/offlineformat.h
+/home/pi/Keeper/keeper/src/offlineformat.h
 reader.h
-/home/pi/keeper/keeper/src/reader.h
+/home/pi/Keeper/keeper/src/reader.h
+
+/usr/local/include/MQTTClient.h
+stdio.h
+-
+MQTTClientPersistence.h
+/usr/local/include/MQTTClientPersistence.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+MQTTClient.h
+/usr/local/include/MQTTClient.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+MQTTClient.h
+/usr/local/include/MQTTClient.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+MQTTClient.h
+/usr/local/include/MQTTClient.h
+
+/usr/local/include/MQTTClientPersistence.h
 
 /usr/local/include/piFace.h
 
@@ -129,6 +175,8 @@ nfc/nfc.h
 -
 
 include/keyfile.h
+
+include/mqtt.h
 
 include/nfc.h
 stdint.h

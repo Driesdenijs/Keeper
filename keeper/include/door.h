@@ -23,6 +23,11 @@ enum PRESUMED_STATE{
     CLOSED
 };
 
+extern const char * const doorStates[];
+
+typedef void(*onStateChange)(int);
+
+void setOnStateChange_callback(void(*onStateChange)(int));
 int doorInit();
 void doorPulseOutput();
 int doorGetState();

@@ -30,8 +30,9 @@
 pthread_t t_monDoor;
 
 int outputs [4] = { 0,0,0,0 } ;
-const char * const states[] =  {"HOLD","OPENING","CLOSING","IDLE","ERROR"};
+const char * const doorStates[] =  {"HOLD","OPENING","CLOSING","IDLE","ERROR"};
 volatile int  presumedState = OPENED;
+onStateChange onStateChange_cb = NULL;
 FILE* message_stream;
 //#define OUTPUTSTREAM stdout
 #define OUTPUTSTREAM fopen("/dev/null", "w")
@@ -97,6 +98,7 @@ int doorSetState(int state){
 void* monitorDoor(void *arg){
 
 	int position=0, st;
+	static int state = IDLE;
 
         while(1){
 	    st = doorGetState();
@@ -110,13 +112,20 @@ void* monitorDoor(void *arg){
 		presumedState = CLOSED;
             usleep(500000);
         }
+	if(state != st){
+	    if(onStateChange_cb != NULL)
+	       onStateChange_cb(st);
+	}
 }
 
 int doorGetPresumedState(){
 	return presumedState;
 }
 
-
+void setOnStateChange_callback(onStateChange cb)
+{
+   onStateChange_cb = cb;
+}
 
 int doorInit(){
   

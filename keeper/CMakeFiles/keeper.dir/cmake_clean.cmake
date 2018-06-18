@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/keeper.dir/src/door.c.o"
   "CMakeFiles/keeper.dir/src/keyfile.c.o"
   "CMakeFiles/keeper.dir/src/main.c.o"
+  "CMakeFiles/keeper.dir/src/mqtt.c.o"
   "CMakeFiles/keeper.dir/src/reader.c.o"
   "keeper.pdb"
   "keeper"

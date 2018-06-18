@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/keeper/keeper
+CMAKE_SOURCE_DIR = /home/pi/Keeper/keeper
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/keeper/keeper
+CMAKE_BINARY_DIR = /home/pi/Keeper/keeper
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/keeper/keeper/CMakeFiles /home/pi/keeper/keeper/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Keeper/keeper/CMakeFiles /home/pi/Keeper/keeper/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/keeper/keeper/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Keeper/keeper/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/keeper.dir/build.make CMakeFiles/keeper.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/mqtt.o: src/mqtt.c.o
+
+.PHONY : src/mqtt.o
+
+# target to build an object file
+src/mqtt.c.o:
+	$(MAKE) -f CMakeFiles/keeper.dir/build.make CMakeFiles/keeper.dir/src/mqtt.c.o
+.PHONY : src/mqtt.c.o
+
+src/mqtt.i: src/mqtt.c.i
+
+.PHONY : src/mqtt.i
+
+# target to preprocess a source file
+src/mqtt.c.i:
+	$(MAKE) -f CMakeFiles/keeper.dir/build.make CMakeFiles/keeper.dir/src/mqtt.c.i
+.PHONY : src/mqtt.c.i
+
+src/mqtt.s: src/mqtt.c.s
+
+.PHONY : src/mqtt.s
+
+# target to generate assembly for a file
+src/mqtt.c.s:
+	$(MAKE) -f CMakeFiles/keeper.dir/build.make CMakeFiles/keeper.dir/src/mqtt.c.s
+.PHONY : src/mqtt.c.s
+
 src/reader.o: src/reader.c.o
 
 .PHONY : src/reader.o
@@ -249,6 +276,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/mqtt.o"
+	@echo "... src/mqtt.i"
+	@echo "... src/mqtt.s"
 	@echo "... src/reader.o"
 	@echo "... src/reader.i"
 	@echo "... src/reader.s"
